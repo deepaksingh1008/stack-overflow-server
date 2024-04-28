@@ -21,5 +21,10 @@ app.use(cors());
 app.use("/user", userRoutes);
 app.use("/questions", questionRoutes);
 app.use("/answer", answerRoutes);
+app.get("*", (req, res, next) => {
+  res.status(200).json({
+    message: "bad request",
+  });
+});
 
 export default app;
